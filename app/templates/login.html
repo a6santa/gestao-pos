@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+
+{% block title %} Login {% endblock %}
+{% block contents %}
+        <form action="" method="POST" class="form-signin">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul id="messages" class="list-unstyled">
+                    {% for message in messages %}
+                        <li class="alert alert-warning">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <h1 class="h3 mb-3 font-weight-normal text-center">Gestão POS</h1>
+            {{ form.csrf_token }}
+            <div class="form-group">
+                <label class="sr-only">Username</label>
+                {{ form.username(class="form-control", placeholder="Username") }}
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Password</label>
+                {{ form.password(class="form-control", placeholder="Password") }}
+            </div>
+            <div class="checkbox mb-3">
+                <label>{{ form.remember_me }} Remember me</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-light btn-block">Sign in</button>
+            </div>
+        </form>
+{% endblock %}}
