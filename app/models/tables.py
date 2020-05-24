@@ -1,4 +1,5 @@
 from app import db
+import datetime
 
 
 class User(db.Model):
@@ -9,12 +10,18 @@ class User(db.Model):
     password = db.Column(db.String(80), nullable=False)
     name = db.Column(db.String(500), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    permission = db.Column(db.Enum('admin', 'operator'), name='permission')
+    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
+    status = db.Column(db.Boolean, default=True)
 
-    def __init__(self, username, password, name, email):
+    def __init__(self, username, password, name, email, permission='operator', status=True):
         self.username = username
         self.password = password
         self.name = name
         self.email = email
+        self.permission = permission
+        self.status = status
 
     @property
     def is_authenticated(self):
@@ -33,3 +40,34 @@ class User(db.Model):
 
     def __repr__(self):
         return "<User %r>" % self.username
+
+
+class Supplier(db.Model):
+    __tablename__ = 'suppliers'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    document = db.Column(db.String(30), nullable=False)
+    address = db.Column(db.String(200), nullable=False)
+    number = db.Column(db.Integer, nullable=False)
+    city = db.Column(db.String(255), nullable=False)
+    state = db.Column(db.String(2), nullable=False)
+    zip_code = db.Column(db.String(14), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow,
+                           onupdate=datetime.datetime.utcnow, nullable=False)
+    status = db.Column(db.Boolean, default=True)
+    register_by = db.Column(db.String(100), nullable=False)
+
+    def __init__(self, name, document, address, email, number,
+                 city, state, zip_code, register_by, status=True):
+        self.name = name
+        self.document = document
+        self.address = address
+        self.email = email
+        self.number = number
+        self.city = city
+        self.state = state
+        self.zip_code = zip_code
+        self.register_by = register_by
+        self.status = status

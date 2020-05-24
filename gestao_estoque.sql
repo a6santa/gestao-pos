@@ -7,7 +7,6 @@ CREATE TABLE `users` (
   `permission` enum('admin','operator'),
   `created_at` timestamp,
   `update_at` timestamp,
-  `country_code` int,
   `status` boolean
 );
 
@@ -21,7 +20,7 @@ CREATE TABLE `supplier` (
   `state` varchar(2),
   `zip_code` varchar(14),
   `created_at` timestamp,
-  `update_at` timestamp,
+  `updated_at` timestamp,
   `status` boolean,
   `register_by` varchar(255)
 );
