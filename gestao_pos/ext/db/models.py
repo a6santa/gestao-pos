@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-from datetime import datetime
+import datetime
 from werkzeug.security import check_password_hash
 from gestao_pos.ext.db import db
 

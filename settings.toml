@@ -15,14 +15,11 @@ DEBUG_TB_PROFILER_ENABLED = true
 DEBUG_TB_INTERCEPT_REDIRECTS = false
 
 EXTENSIONS = [
-    "avec_reports.ext.db:init_app",
-    "avec_reports.ext.auth:init_app",
-    "avec_reports.ext.admin:init_app",
-    "avec_reports.ext.cli:init_app",
-    "avec_reports.ext.site:init_app",
-    "avec_reports.ext.toolbar:init_app",
-    "avec_reports.ext.export:init_app",
-    "avec_reports.ext.login:init_app"
+    "gestao_pos.ext.db:init_app",
+    "gestao_pos.ext.admin:init_app",
+    "gestao_pos.ext.cli:init_app",
+    "gestao_pos.ext.site:init_app",
+    "gestao_pos.ext.toolbar:init_app"
 ]
 
 
@@ -30,11 +27,8 @@ EXTENSIONS = [
 SQLALCHEMY_TRACK_MODIFICATIONS = false
 
 EXTENSIONS = [
-    "avec_reports.ext.db:init_app",
-    "avec_reports.ext.auth:init_app",
-    "avec_reports.ext.admin:init_app",
-    "avec_reports.ext.cli:init_app",
-    "avec_reports.ext.site:init_app",
-    "avec_reports.ext.export:init_app",
-    "avec_reports.ext.login:init_app"
+    "gestao_pos.ext.db:init_app",
+    "gestao_pos.ext.admin:init_app",
+    "gestao_pos.ext.cli:init_app",
+    "gestao_pos.ext.site:init_app"
 ]
