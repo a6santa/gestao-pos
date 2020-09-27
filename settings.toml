@@ -1,0 +1,34 @@
+[default]
+DEBUG = false
+FLASK_ADMIN_SWATCH = "yeti"
+ADMIN_NAME = "Admin"
+TEMPLATE_MODE = "bootstrap3"
+
+[development]
+DEBUG = true
+
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+
+
+DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
+DEBUG_TB_PROFILER_ENABLED = true
+DEBUG_TB_INTERCEPT_REDIRECTS = false
+
+EXTENSIONS = [
+    "gestao_pos.ext.db:init_app",
+    "gestao_pos.ext.admin:init_app",
+    "gestao_pos.ext.cli:init_app",
+    "gestao_pos.ext.site:init_app",
+    "gestao_pos.ext.toolbar:init_app"
+]
+
+
+[production]
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+
+EXTENSIONS = [
+    "gestao_pos.ext.db:init_app",
+    "gestao_pos.ext.admin:init_app",
+    "gestao_pos.ext.cli:init_app",
+    "gestao_pos.ext.site:init_app"
+]
