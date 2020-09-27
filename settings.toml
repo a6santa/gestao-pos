@@ -1,0 +1,40 @@
+[default]
+DEBUG = false
+FLASK_ADMIN_SWATCH = "yeti"
+ADMIN_NAME = "Admin"
+TEMPLATE_MODE = "bootstrap3"
+
+[development]
+DEBUG = true
+
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+
+
+DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
+DEBUG_TB_PROFILER_ENABLED = true
+DEBUG_TB_INTERCEPT_REDIRECTS = false
+
+EXTENSIONS = [
+    "avec_reports.ext.db:init_app",
+    "avec_reports.ext.auth:init_app",
+    "avec_reports.ext.admin:init_app",
+    "avec_reports.ext.cli:init_app",
+    "avec_reports.ext.site:init_app",
+    "avec_reports.ext.toolbar:init_app",
+    "avec_reports.ext.export:init_app",
+    "avec_reports.ext.login:init_app"
+]
+
+
+[production]
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+
+EXTENSIONS = [
+    "avec_reports.ext.db:init_app",
+    "avec_reports.ext.auth:init_app",
+    "avec_reports.ext.admin:init_app",
+    "avec_reports.ext.cli:init_app",
+    "avec_reports.ext.site:init_app",
+    "avec_reports.ext.export:init_app",
+    "avec_reports.ext.login:init_app"
+]
